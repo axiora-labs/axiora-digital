@@ -1,0 +1,132 @@
+---
+import { Mail, MessageCircle, Phone, User } from "lucide-react";
+---
+
+<section id="contact" class="py-24 bg-white relative">
+    <div class="container mx-auto px-6 max-w-5xl">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+                Ready to Grow Your Business?
+            </h2>
+            <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+                We'd love to hear about your project. Reach out and let's see
+                how we can help you get more customers.
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8 mb-12">
+            <!-- Main Contact Card -->
+            <div
+                class="bg-slate-900 rounded-[2rem] p-8 md:p-12 text-white flex flex-col justify-between shadow-2xl shadow-slate-900/20"
+            >
+                <div>
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold mb-6 border border-blue-500/30"
+                    >
+                        <span class="relative flex h-2 w-2">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
+                            ></span>
+                            <span
+                                class="relative inline-flex rounded-full h-2 w-2 bg-green-500"
+                            ></span>
+                        </span>
+                        Let's Talk
+                    </div>
+                    <h3 class="text-3xl font-bold mb-2">
+                        Schedule a Free Call
+                    </h3>
+                    <p class="text-slate-400 mb-8">
+                        For strategy, pricing, and project questions.
+                    </p>
+
+                    <div class="space-y-6">
+                        <a
+                            href="mailto:hello@axioralabs.com"
+                            class="flex items-center gap-4 group"
+                        >
+                            <div
+                                class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-blue-600 transition-colors"
+                            >
+                                <Mail size={20} />
+                            </div>
+                            <span class="text-xl font-bold"
+                                >hello@axioralabs.com</span
+                            >
+                        </a>
+
+                        <a
+                            href="https://wa.me/94718869555"
+                            class="flex items-center gap-4 group"
+                        >
+                            <div
+                                class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-green-600 transition-colors"
+                            >
+                                <MessageCircle size={20} />
+                            </div>
+                            <div>
+                                <span class="block text-xl font-bold"
+                                    >+94 71 886 9555</span
+                                >
+                                <span
+                                    class="text-xs text-slate-400 uppercase tracking-wider"
+                                    >WhatsApp Available</span
+                                >
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Members Grid -->
+            <div class="flex flex-col gap-6">
+                <div
+                    class="bg-slate-50 border border-slate-200 rounded-[2rem] p-8 hover:border-blue-200 transition-colors flex items-center gap-6"
+                >
+                    <div
+                        class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shrink-0"
+                    >
+                        <User size={32} />
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-slate-900">
+                            K. Tharindu
+                        </h4>
+                        <p class="text-sm text-slate-500 mb-2">
+                            Lead Strategist
+                        </p>
+                        <a
+                            href="tel:+94776765364"
+                            class="text-lg font-bold text-slate-900 hover:text-blue-600 transition-colors flex items-center gap-2"
+                        >
+                            <Phone size={16} className="text-blue-500" /> +94 77 676
+                            5364
+                        </a>
+                    </div>
+                </div>
+                <div
+                    class="bg-slate-50 border border-slate-200 rounded-[2rem] p-8 hover:border-teal-200 transition-colors flex items-center gap-6"
+                >
+                    <div
+                        class="w-16 h-16 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 shrink-0"
+                    >
+                        <User size={32} />
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-slate-900">
+                            F. Khan
+                        </h4>
+                        <p class="text-sm text-slate-500 mb-2">Creative Lead</p>
+                        <a
+                            href="tel:+94705830609"
+                            class="text-lg font-bold text-slate-900 hover:text-teal-600 transition-colors flex items-center gap-2"
+                        >
+                            <Phone size={16} className="text-teal-500" /> +94 70 583
+                            0609
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

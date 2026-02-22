@@ -1,11 +1,57 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// --- New Component Imports ---
+import HeroSection from "../components/landing/HeroSection.astro";
+import ProblemSection from "../components/landing/ProblemSection.astro";
+import PackagesSection from "../components/landing/PackagesSection.astro";
+import ContactSection from "../components/landing/ContactSection.astro";
+import Footer from "../components/landing/Footer.astro";
+
+// --- React Component Imports (Keep these as they are client-side interactive) ---
+import { ServicesBento } from "../components/landing/ServicesBento.jsx";
+import { Comparison } from "../components/landing/Comparison";
+import { PortfolioGallery } from "../components/landing/PortfolioGallery";
+import { CoolStuff } from "../components/landing/CoolStuff";
+import { Ecosystem } from "../components/landing/Ecosystem";
+
+// Data Fetching (remains the same)
+const packages = await getCollection("packages");
+const sortedPackages = packages.sort(
+	(a, b) =>
+		parseInt(a.data.price.replace(/\D/g, "")) -
+		parseInt(b.data.price.replace(/\D/g, "")),
+);
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Axiora Digital | Social Media Management That Sells">
+	<!-- Hero Section (React) -->
+	<HeroSection />
+
+	<!-- Problem Section (Astro) -->
+	<ProblemSection />
+
+	<!-- Services Bento Grid (React) -->
+	<ServicesBento client:visible />
+
+	<!-- Comparison Section (React) -->
+	<Comparison client:visible />
+
+	<!-- Portfolio Gallery (React) -->
+	<PortfolioGallery client:visible />
+
+	<!-- Pricing Packages Section (Astro) -->
+	<!-- We pass the sortedPackages data as a prop -->
+	<PackagesSection packages={sortedPackages} />
+
+	<!-- Other Cool Sections (React) -->
+	<CoolStuff client:visible />
+	<Ecosystem client:visible />
+
+	<!-- Contact Section (Astro) -->
+	<ContactSection />
+
+	<!-- Footer (Astro) -->
+	<Footer />
 </Layout>

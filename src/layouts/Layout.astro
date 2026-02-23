@@ -1,4 +1,5 @@
 ---
+// src/layouts/Layout.astro
 import "../styles/global.css";
 
 interface Props {
@@ -7,8 +8,8 @@ interface Props {
 }
 
 const {
-	title = "Axiora Digital | Growth Engineered",
-	description = "Sri Lanka's first Tech-First Digital Agency. We replace manual social media work with AI, Automation, and Engineering.",
+	title = "Axiora Digital | Get More Customers from Social Media", // Updated title for clarity
+	description = "Axiora Digital helps businesses get more customers with expert social media management, engaging video reels, and smart digital strategies. Get real results.", // Updated description
 } = Astro.props;
 ---
 
@@ -45,9 +46,10 @@ const {
 					class="text-2xl font-black tracking-tighter text-slate-900 group flex items-center gap-1"
 				>
 					Axiora Digital<span
-						class="text-teal-500 text-4xl leading-none mt-[-8px]"
+						class="text-blue-500 text-4xl leading-none mt-[-8px]"
 						>.</span
 					>
+					{/* Changed brand dot color to blue for consistency */}
 				</a>
 
 				<div
@@ -57,21 +59,29 @@ const {
 						>Home</a
 					>
 					<a
-						href="/about"
+						href="/#services"
 						class="hover:text-blue-600 transition-colors"
-						>About System</a
+						>Our Services</a
 					>
+					{/* Changed to Our Services */}
 					<a
 						href="/#packages"
-						class="hover:text-blue-600 transition-colors"
-						>Deployment Tiers</a
+						class="hover:text-blue-600 transition-colors">Pricing</a
 					>
+					{/* Changed to Pricing */}
+					<a
+						href="/#portfolio"
+						class="hover:text-blue-600 transition-colors"
+						>Our Work</a
+					>
+					{/* Added Our Work link */}
 
 					<a
 						href="/#contact"
 						class="px-6 py-3 bg-slate-900 text-white rounded-xl hover:bg-blue-600 transition-all shadow-lg shadow-slate-900/20 hover:shadow-blue-600/20 font-bold flex items-center gap-2"
 					>
-						<span>Initialize Project</span>
+						<span>Get a Free Quote</span>
+						{/* Changed to Get a Free Quote */}
 					</a>
 				</div>
 
@@ -124,19 +134,24 @@ const {
 						>Home</a
 					>
 					<a
-						href="/about"
+						href="/#services"
 						class="block px-4 py-3 rounded-lg hover:bg-slate-50 text-slate-600 font-medium hover:text-blue-600 transition-colors"
-						>About System</a
+						>Our Services</a
 					>
 					<a
 						href="/#packages"
 						class="block px-4 py-3 rounded-lg hover:bg-slate-50 text-slate-600 font-medium hover:text-blue-600 transition-colors"
-						>Deployment Tiers</a
+						>Pricing</a
+					>
+					<a
+						href="/#portfolio"
+						class="block px-4 py-3 rounded-lg hover:bg-slate-50 text-slate-600 font-medium hover:text-blue-600 transition-colors"
+						>Our Work</a
 					>
 					<a
 						href="/#contact"
 						class="block mt-4 py-4 text-center bg-slate-900 text-white rounded-xl font-bold hover:bg-blue-600 transition-colors"
-						>Initialize Project</a
+						>Get a Free Quote</a
 					>
 				</div>
 			</div>
@@ -147,6 +162,7 @@ const {
 		</main>
 
 		<script>
+			// Mobile menu toggle logic
 			const menuBtn = document.getElementById("menu-btn");
 			const mobileMenu = document.getElementById("mobile-menu");
 			const menuIcon = document.querySelector(".menu-icon");
@@ -174,6 +190,19 @@ const {
 					menuIcon?.classList.remove("hidden");
 					closeIcon?.classList.add("hidden");
 				});
+			});
+
+			// Optional: Close mobile menu if window is resized above mobile breakpoint
+			window.addEventListener("resize", () => {
+				if (
+					window.innerWidth >= 768 &&
+					!mobileMenu?.classList.contains("hidden")
+				) {
+					// 768px is md breakpoint
+					mobileMenu?.classList.add("hidden");
+					menuIcon?.classList.remove("hidden");
+					closeIcon?.classList.add("hidden");
+				}
 			});
 		</script>
 	</body>

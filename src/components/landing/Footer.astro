@@ -1,90 +1,119 @@
 ---
-// Import social media icons if you have them, e.g., from 'astro-feather-icons'
-// For now, using text placeholders.
+// src/components/landing/Footer.astro
+// Import social media icons (replace with actual Lucide-React or other icons if you use them)
+import { Facebook, Instagram, Linkedin } from "lucide-react"; // Assuming you have these installed
 ---
 
 <footer class="bg-slate-950 text-white py-16 border-t border-slate-900">
     <div class="container mx-auto px-6">
         <div class="grid md:grid-cols-4 gap-12 mb-12">
-            <!-- Brand -->
+            <!-- Brand & Mission -->
             <div class="col-span-1 md:col-span-2">
-                <div class="text-2xl font-black tracking-tight mb-6">
+                <div class="text-2xl font-black tracking-tighter mb-6">
                     Axiora Digital<span class="text-blue-500">.</span>
+                    {/* Consistent brand dot color */}
                 </div>
-                <p class="text-slate-400 max-w-sm mb-6">
-                    A digital marketing agency that helps businesses get more
-                    customers through social media management, content creation,
-                    and short-form video.
+                <p class="text-slate-400 max-w-sm mb-6 leading-relaxed">
+                    We help businesses attract more customers and grow online
+                    through expert social media management, engaging video
+                    content, and smart digital strategies.
                 </p>
                 <div class="flex gap-4">
-                    <!-- Replace with actual social links and icons -->
+                    {/* Social Links with icons */}
                     <a
                         href="#"
                         class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all"
-                        >FB</a
+                        aria-label="Facebook"
                     >
+                        <Facebook size={20} />
+                    </a>
                     <a
                         href="#"
                         class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:bg-pink-600 hover:text-white transition-all"
-                        >IG</a
+                        aria-label="Instagram"
                     >
+                        <Instagram size={20} />
+                    </a>
                     <a
                         href="#"
                         class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:bg-sky-600 hover:text-white transition-all"
-                        >LN</a
+                        aria-label="LinkedIn"
                     >
+                        <Linkedin size={20} />
+                    </a>
                 </div>
             </div>
 
-            <!-- Services -->
+            <!-- Services Links -->
             <div>
-                <h4 class="font-bold mb-6">Our Services</h4>
+                <h4 class="font-bold mb-6 text-white">Our Services</h4>
                 <ul class="space-y-4 text-slate-400 text-sm">
                     <li>
                         <a
-                            href="#services"
+                            href="/#services"
                             class="hover:text-blue-400 transition-colors"
                             >Social Media Management</a
                         >
                     </li>
                     <li>
                         <a
-                            href="#services"
+                            href="/#services"
                             class="hover:text-blue-400 transition-colors"
                             >Reels & Video Creation</a
                         >
                     </li>
                     <li>
                         <a
-                            href="#services"
+                            href="/#services"
                             class="hover:text-blue-400 transition-colors"
                             >Post & Script Writing</a
                         >
                     </li>
                     <li>
                         <a
-                            href="#portfolio"
+                            href="/#services"
                             class="hover:text-blue-400 transition-colors"
-                            >Our Work</a
+                            >High-Performance Websites</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/#services"
+                            class="hover:text-blue-400 transition-colors"
+                            >See All Services</a
                         >
                     </li>
                 </ul>
             </div>
 
-            <!-- Company -->
+            <!-- Company Links -->
             <div>
-                <h4 class="font-bold mb-6">Company</h4>
+                <h4 class="font-bold mb-6 text-white">Company</h4>
                 <ul class="space-y-4 text-slate-400 text-sm">
                     <li>
                         <a
-                            href="#packages"
+                            href="/about"
+                            class="hover:text-blue-400 transition-colors"
+                            >About Us</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/#portfolio"
+                            class="hover:text-blue-400 transition-colors"
+                            >Our Work</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/#packages"
                             class="hover:text-blue-400 transition-colors"
                             >Pricing</a
                         >
                     </li>
                     <li>
                         <a
-                            href="#contact"
+                            href="/#contact"
                             class="hover:text-blue-400 transition-colors"
                             >Contact Us</a
                         >

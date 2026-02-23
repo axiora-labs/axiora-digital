@@ -1,137 +1,377 @@
 ---
-// src/components/landing/Footer.astro
-// Import social media icons (replace with actual Lucide-React or other icons if you use them)
-import { Facebook, Instagram, Linkedin } from "lucide-react"; // Assuming you have these installed
+// src/components/structure/Footer.astro
+// Importing the exact official brand logos from Simple Icons via react-icons
+import {
+    SiWhatsapp,
+    SiLinkedin,
+    SiInstagram,
+    SiTiktok,
+    SiFacebook,
+} from "react-icons/si";
+
+const currentYear = new Date().getFullYear();
+
+const links = {
+    products: [
+        {
+            name: "CareerAI",
+            href: "https://www.axioralabs.com/products/career-ai",
+        },
+        {
+            name: "Axiora POS",
+            href: "https://www.axioralabs.com/products/axiora-pos",
+        },
+        {
+            name: "ZenFlow",
+            href: "https://www.axioralabs.com/products/zenflow",
+        },
+    ],
+    services: [
+        {
+            name: "Custom Software",
+            href: "https://www.axioralabs.com/services/custom-software",
+        },
+        {
+            name: "AI Consulting",
+            href: "https://www.axioralabs.com/services/ai-consulting",
+        },
+        {
+            name: "Mobile App Dev",
+            href: "https://www.axioralabs.com/services/mobile-apps",
+        },
+    ],
+    ecosystem: [
+        {
+            name: "Axiora Academy",
+            href: "https://axiora.academy",
+            external: true,
+        },
+        {
+            name: "Axiora Digital",
+            href: "https://axioralabs.digital",
+            external: true,
+        },
+        {
+            name: "Axiora Quotes",
+            href: "https://quotes.axioralabs.com",
+            external: true,
+        },
+    ],
+    company: [
+        { name: "About Us", href: "https://www.axioralabs.com/about" },
+        { name: "Blog", href: "https://www.axioralabs.com/blog" },
+        { name: "Contact", href: "https://www.axioralabs.com/contact" },
+    ],
+};
+
+const socials = [
+    {
+        name: "WhatsApp",
+        href: "https://wa.me/94718869555",
+        brandColor:
+            "hover:bg-[#25D366] hover:text-white hover:border-[#25D366]",
+        baseStyle: "bg-[#25D366]/5 text-[#25D366] border-[#25D366]/10",
+        Icon: SiWhatsapp,
+    },
+    {
+        name: "LinkedIn",
+        href: "https://linkedin.com/company/axioralabs",
+        brandColor:
+            "hover:bg-[#0077B5] hover:text-white hover:border-[#0077B5]",
+        baseStyle: "bg-[#0077B5]/5 text-[#0077B5] border-[#0077B5]/10",
+        Icon: SiLinkedin,
+    },
+    {
+        name: "Instagram",
+        href: "https://instagram.com/axioralabs",
+        brandColor:
+            "hover:bg-gradient-to-tr hover:from-[#F58529] hover:via-[#DD2A7B] hover:to-[#8134AF] hover:text-white hover:border-transparent",
+        baseStyle: "bg-[#E4405F]/5 text-[#E4405F] border-[#E4405F]/10",
+        Icon: SiInstagram,
+    },
+    {
+        name: "TikTok",
+        href: "https://tiktok.com/@axioralabs",
+        brandColor: "hover:bg-black hover:text-white hover:border-black",
+        baseStyle: "bg-slate-100 text-slate-800 border-slate-200",
+        Icon: SiTiktok,
+    },
+    {
+        name: "Facebook",
+        href: "https://facebook.com/axioralabs",
+        brandColor:
+            "hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2]",
+        baseStyle: "bg-[#1877F2]/5 text-[#1877F2] border-[#1877F2]/10",
+        Icon: SiFacebook,
+    },
+];
 ---
 
-<footer class="bg-slate-950 text-white py-16 border-t border-slate-900">
-    <div class="container mx-auto px-6">
-        <div class="grid md:grid-cols-4 gap-12 mb-12">
-            <!-- Brand & Mission -->
-            <div class="col-span-1 md:col-span-2">
-                <div class="text-2xl font-black tracking-tighter mb-6">
-                    Axiora Digital<span class="text-blue-500">.</span>
-                    {/* Consistent brand dot color */}
-                </div>
-                <p class="text-slate-400 max-w-sm mb-6 leading-relaxed">
-                    We help businesses attract more customers and grow online
-                    through expert social media management, engaging video
-                    content, and smart digital strategies.
+<footer
+    class="relative bg-white pt-24 pb-8 overflow-hidden border-t border-slate-200 mt-20"
+>
+    <div
+        class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:32px_32px] opacity-40 pointer-events-none"
+    >
+    </div>
+
+    <div class="max-w-[90rem] mx-auto px-6 lg:px-12 relative z-10">
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20"
+        >
+            <div class="lg:col-span-4 lg:pr-12">
+                <a href="/" class="inline-flex items-center gap-2.5 mb-6 group">
+                    <img
+                        src="/Axiora Logo icon trans.png"
+                        alt="Axiora Logo"
+                        class="w-10 h-10 object-contain transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <span
+                        class="text-2xl font-black text-slate-900 tracking-tighter"
+                    >
+                        Axiora<span class="text-blue-600">Labs</span>
+                    </span>
+                </a>
+                <p class="text-slate-500 text-sm leading-relaxed mb-8 max-w-sm">
+                    Engineering the future of Sri Lanka and beyond with AI-first
+                    technology. We build intelligent systems that solve complex
+                    business challenges through pure engineering excellence.
                 </p>
-                <div class="flex gap-4">
-                    {/* Social Links with icons */}
-                    <a
-                        href="#"
-                        class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all"
-                        aria-label="Facebook"
-                    >
-                        <Facebook size={20} />
-                    </a>
-                    <a
-                        href="#"
-                        class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:bg-pink-600 hover:text-white transition-all"
-                        aria-label="Instagram"
-                    >
-                        <Instagram size={20} />
-                    </a>
-                    <a
-                        href="#"
-                        class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:bg-sky-600 hover:text-white transition-all"
-                        aria-label="LinkedIn"
-                    >
-                        <Linkedin size={20} />
-                    </a>
+
+                <div class="flex flex-wrap gap-3">
+                    {
+                        socials.map((social) => {
+                            const Icon = social.Icon;
+                            return (
+                                <a
+                                    href={social.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class={`w-11 h-11 rounded-xl border ${social.baseStyle} ${social.brandColor} flex items-center justify-center transition-all duration-300 hover:scale-105 hover:-translate-y-1 shadow-sm`}
+                                    title={social.name}
+                                >
+                                    <span class="sr-only">{social.name}</span>
+                                    <Icon className="w-5 h-5 fill-current" />
+                                </a>
+                            );
+                        })
+                    }
                 </div>
             </div>
 
-            <!-- Services Links -->
-            <div>
-                <h4 class="font-bold mb-6 text-white">Our Services</h4>
-                <ul class="space-y-4 text-slate-400 text-sm">
-                    <li>
-                        <a
-                            href="/#services"
-                            class="hover:text-blue-400 transition-colors"
-                            >Social Media Management</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            href="/#services"
-                            class="hover:text-blue-400 transition-colors"
-                            >Reels & Video Creation</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            href="/#services"
-                            class="hover:text-blue-400 transition-colors"
-                            >Post & Script Writing</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            href="/#services"
-                            class="hover:text-blue-400 transition-colors"
-                            >High-Performance Websites</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            href="/#services"
-                            class="hover:text-blue-400 transition-colors"
-                            >See All Services</a
-                        >
-                    </li>
-                </ul>
+            <div class="lg:col-span-2 space-y-10">
+                <div>
+                    <h4
+                        class="text-slate-900 font-bold mb-5 text-xs uppercase tracking-[0.2em]"
+                    >
+                        Products
+                    </h4>
+                    <ul class="space-y-3.5 text-sm">
+                        {
+                            links.products.map((link) => (
+                                <li>
+                                    <a
+                                        href={link.href}
+                                        class="text-slate-500 font-medium hover:text-blue-600 transition-colors"
+                                    >
+                                        {link.name}
+                                    </a>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+                <div>
+                    <h4
+                        class="text-slate-900 font-bold mb-5 text-xs uppercase tracking-[0.2em]"
+                    >
+                        Services
+                    </h4>
+                    <ul class="space-y-3.5 text-sm">
+                        {
+                            links.services.map((link) => (
+                                <li>
+                                    <a
+                                        href={link.href}
+                                        class="text-slate-500 font-medium hover:text-blue-600 transition-colors"
+                                    >
+                                        {link.name}
+                                    </a>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
             </div>
 
-            <!-- Company Links -->
-            <div>
-                <h4 class="font-bold mb-6 text-white">Company</h4>
-                <ul class="space-y-4 text-slate-400 text-sm">
-                    <li>
-                        <a
-                            href="/about"
-                            class="hover:text-blue-400 transition-colors"
-                            >About Us</a
+            <div class="lg:col-span-2 space-y-10">
+                <div>
+                    <h4
+                        class="text-slate-900 font-bold mb-5 text-xs uppercase tracking-[0.2em]"
+                    >
+                        Ecosystem
+                    </h4>
+                    <ul class="space-y-3.5 text-sm">
+                        {
+                            links.ecosystem.map((link) => (
+                                <li>
+                                    <a
+                                        href={link.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="text-slate-500 font-medium hover:text-blue-600 transition-colors flex items-center gap-1.5 group"
+                                    >
+                                        {link.name}
+                                        <svg
+                                            class="w-3 h-3 text-slate-300 group-hover:text-blue-500 transition-colors group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                            />
+                                        </svg>
+                                    </a>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+                <div>
+                    <h4
+                        class="text-slate-900 font-bold mb-5 text-xs uppercase tracking-[0.2em]"
+                    >
+                        Company
+                    </h4>
+                    <ul class="space-y-3.5 text-sm">
+                        {
+                            links.company.map((link) => (
+                                <li>
+                                    <a
+                                        href={link.href}
+                                        class="text-slate-500 font-medium hover:text-blue-600 transition-colors"
+                                    >
+                                        {link.name}
+                                    </a>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="lg:col-span-4 lg:pl-6 border-t lg:border-t-0 lg:border-l border-slate-100 pt-10 lg:pt-0"
+            >
+                <h4
+                    class="text-slate-900 font-bold mb-6 text-xs uppercase tracking-[0.2em]"
+                >
+                    Global Hubs
+                </h4>
+
+                <div
+                    class="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-8 mb-8"
+                >
+                    <div class="flex items-start gap-4 flex-1">
+                        <div
+                            class="w-12 h-8 rounded-md overflow-hidden border border-slate-200 shadow-sm shrink-0 bg-slate-50"
                         >
-                    </li>
-                    <li>
-                        <a
-                            href="/#portfolio"
-                            class="hover:text-blue-400 transition-colors"
-                            >Our Work</a
+                            <img
+                                src="https://flagcdn.com/w80/lk.png"
+                                alt="Sri Lanka Flag"
+                                class="w-full h-full object-cover"
+                                loading="lazy"
+                            />
+                        </div>
+                        <div class="pt-0.5">
+                            <p
+                                class="text-sm font-black text-slate-900 tracking-tight mb-1"
+                            >
+                                Colombo, LK
+                            </p>
+                            <p
+                                class="text-xs text-slate-500 leading-relaxed max-w-[140px]"
+                            >
+                                Axiora Labs HQ, Horape, Ragama.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 flex-1">
+                        <div
+                            class="w-12 h-8 rounded-md overflow-hidden border border-slate-200 shadow-sm shrink-0 bg-slate-50"
                         >
-                    </li>
-                    <li>
-                        <a
-                            href="/#packages"
-                            class="hover:text-blue-400 transition-colors"
-                            >Pricing</a
+                            <img
+                                src="https://flagcdn.com/w80/ae.png"
+                                alt="UAE Flag"
+                                class="w-full h-full object-cover"
+                                loading="lazy"
+                            />
+                        </div>
+                        <div class="pt-0.5">
+                            <p
+                                class="text-sm font-black text-slate-900 tracking-tight mb-1"
+                            >
+                                Dubai, UAE
+                            </p>
+                            <p
+                                class="text-xs text-slate-500 leading-relaxed max-w-[140px]"
+                            >
+                                Jumeirah Garden City, Dubai.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="inline-flex items-center gap-4 bg-slate-50 rounded-2xl p-4 border border-slate-100 w-full sm:w-auto"
+                >
+                    <div
+                        class="w-10 h-10 rounded-full bg-blue-100/50 flex items-center justify-center text-blue-600 shrink-0"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-5 h-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            ><path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                            ></path></svg
                         >
-                    </li>
-                    <li>
-                        <a
-                            href="/#contact"
-                            class="hover:text-blue-400 transition-colors"
-                            >Contact Us</a
+                    </div>
+                    <div>
+                        <p
+                            class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-0.5"
                         >
-                    </li>
-                </ul>
+                            Engineering Inquiries
+                        </p>
+                        <a
+                            href="mailto:hello@axioralabs.com"
+                            class="text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors"
+                            >hello@axioralabs.com</a
+                        >
+                    </div>
+                </div>
             </div>
         </div>
 
         <div
-            class="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500"
+            class="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6"
         >
-            <p>
-                &copy; {new Date().getFullYear()} Axiora Digital. All rights reserved.
+            <p class="text-xs text-slate-500 font-medium">
+                &copy; {currentYear}
+                <span class="text-slate-900 font-bold"
+                    >Axiora Labs (Pvt) Ltd.</span
+                > All rights reserved.
             </p>
-            <div class="flex gap-6 mt-4 md:mt-0">
-                <a href="#" class="hover:text-white">Privacy Policy</a>
-                <a href="#" class="hover:text-white">Terms of Service</a>
-            </div>
         </div>
     </div>
 </footer>
